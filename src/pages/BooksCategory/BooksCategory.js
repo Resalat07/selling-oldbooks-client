@@ -17,8 +17,8 @@ const BooksCategory = () => {
 
 
 
-    const { data: myproducts = [], refetch , isLoading} = useQuery({
-        queryKey: ['addbooks'],
+    const { data: myproducts = [] , refetch , isLoading} = useQuery({
+        queryKey: ['category_name'],
         queryFn: async () => {
             const data = await datas;
 
@@ -38,11 +38,6 @@ const BooksCategory = () => {
 
 
     const handleModal = (event) => {
-
-        refetch()
-
-
-
 
 
         event.preventDefault()
@@ -87,6 +82,20 @@ const BooksCategory = () => {
 
     }
 
+    const handleReport=(id)=>{
+        fetch(`http://localhost:5000/addbooks/report/${id}`,{
+            method:'PUT',
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            if(data.modifiedCount > 0){
+                refetch()
+                toast.success('Reported Successfully')
+            }
+        })
+
+    }
+
 
 
 
@@ -102,15 +111,18 @@ const BooksCategory = () => {
 
 
                     {
-                        myproducts.map(product => product.sellerBooked !== 'booked' && <div>
+                        myproducts.map(product => product.sellerBooked !== 'booked' && <div key={product._id}>
                             {/* The button to open modal */}
 
-                            <div className="card card-compact w-80 bg-base-200 shadow-2xl">
+                            <div  className="card card-compact w-80 bg-base-200 shadow-2xl">
                                 <figure><img src={product.photo} className=' mt-3 h-72 rounded-lg' alt="Shoes" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title text-green-600">{product.bookname}</h2>
                                     <p className=' font-semibold text-2xl'>{product.price} Tk.</p>
                                     <div className="card-actions justify-between mt-2">
+                                        <div>
+                                        {product.report!=='Reported' &&<button onClick={()=>handleReport(product._id)} className="btn btn-xs bg-red-700 text-warning">Report</button>}
+                                        </div>
                                         <div>
                                             {product.status === 'approve' && <p className=" text-2xl text-green-600"><BsPersonCheck></BsPersonCheck></p>}
                                         </div>

@@ -64,7 +64,7 @@ const Login = () => {
                     </form>
 
 
-                    <p className='mt-3'>New to <Link className='text-primary' to="/signUp">Create new Account</Link></p>
+                    <p className='mt-3 text-red-700'>Don't have an Account?  , <Link className='text-primary' to="/signUp">Create new Account</Link></p>
 
 
                     
