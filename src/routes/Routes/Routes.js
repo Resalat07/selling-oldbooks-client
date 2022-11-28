@@ -11,6 +11,7 @@ import Home from "../../pages/Home/Home";
 import Login from "../../pages/Login/Login";
 import MyOrder from "../../pages/MyOrder/MyOrder";
 import MyProduct from "../../pages/MyProduct/MyProduct";
+import Opinions from "../../pages/Opinions/Opinions";
 import SignUp from "../../pages/SignUp/SignUp";
 import Unapproved from "../../pages/Unapproved/Unapproved";
 import Users from "../../pages/Users/Users";
@@ -81,6 +82,10 @@ export const router = createBrowserRouter([
             {
                 path:'/dashboard/unapproved',
                 element:<AdminRoute><Unapproved></Unapproved></AdminRoute>
+            },
+            {
+                path:'/dashboard/opinions',
+                element:<AdminRoute><Opinions></Opinions></AdminRoute>
             }
         ]
     }
