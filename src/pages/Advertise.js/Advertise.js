@@ -24,8 +24,8 @@ const Advertise = () => {
     console.log(allproducts);
     return (
         <div >
-            {allproducts.length !==0 && <h2 className=' text-5xl font-semibold text-center m-6 text-green-900'>Advertise</h2> }
-            <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6 mb-10'>
+            {allproducts.length !==0 && <h2 className=' text-5xl font-semibold text-center m-10 text-green-600'>Advertise</h2> }
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6 mb-10 mt-3'>
             
             {
                 allproducts.map(product=>product.advertise ==='now'  && product.sellerBooked !=='booked' && <div    className="card card-compact w-80 bg-base-200 shadow-xl">
