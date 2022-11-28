@@ -49,7 +49,7 @@ const Users = () => {
                             <th></th>
                             <th>Name</th>
                             <th>email</th>
-                            <th> Buyer</th>
+                            <th>Role</th>
                             <th>admin</th>
                             <th>delete</th>
                         </tr>
