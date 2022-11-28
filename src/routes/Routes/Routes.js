@@ -4,8 +4,10 @@ import DashboardLayOut from "../../layout/DashboardLayout/DashboardLayOut";
 import Main from "../../layout/Main/Main";
 import AddBooks from "../../pages/AddBooks/AddBooks";
 import Allitems from "../../pages/AllItems/Allitems";
+import Blog from "../../pages/Blog/Blog";
 import BookBooked from "../../pages/BookBoked/BookBooked";
 import BooksCategory from "../../pages/BooksCategory/BooksCategory";
+import ErrorPage from "../../pages/ErrorPage/ErrorPage";
 import Home from "../../pages/Home/Home";
 import Login from "../../pages/Login/Login";
 import MyOrder from "../../pages/MyOrder/MyOrder";
@@ -21,6 +23,7 @@ export const router = createBrowserRouter([
     {
         path:'/',
         element:<Main></Main>,
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                 path:'/',
@@ -44,6 +47,10 @@ export const router = createBrowserRouter([
                 loader: ({params})=>fetch(`http://localhost:5000/addbook?category_name=${params.id}`)
             
             },
+            {
+                path:'/blog',
+                element:<Blog></Blog>
+            }
             // {
             //     path:'/bookmodal',
             //     element:<BookBooked></BookBooked>,
@@ -54,6 +61,7 @@ export const router = createBrowserRouter([
     {
         path:'/dashboard',
         element:<PrivateRoute><DashboardLayOut></DashboardLayOut></PrivateRoute>,
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                 path:'/dashboard/seller',
