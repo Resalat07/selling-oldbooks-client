@@ -7,6 +7,7 @@ import { BsPersonCheck } from 'react-icons/bs';
 import { AuthContext } from '../../context/AuthProvider';
 import toast from 'react-hot-toast';
 import { render } from 'react-dom';
+import { GridLoader } from 'react-spinners';
 
 
 
@@ -16,7 +17,7 @@ const BooksCategory = () => {
 
 
 
-    const { data: myproducts = [], refetch } = useQuery({
+    const { data: myproducts = [], refetch , isLoading} = useQuery({
         queryKey: ['addbooks'],
         queryFn: async () => {
             const data = await datas;
@@ -24,6 +25,13 @@ const BooksCategory = () => {
             return data;
         }
     })
+    if(isLoading){
+        <div className=' h-[800px] flex justify-center items-center align-middle'>
+            <GridLoader 
+        color="#0a7b64"
+        size={52}></GridLoader>
+        </div>
+    }
 
     console.log(datas);
     console.log(myproducts)

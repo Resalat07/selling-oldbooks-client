@@ -2,13 +2,14 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import BooksCategory from '../BooksCategory/BooksCategory';
+import { GridLoader } from 'react-spinners';
 
 
 
 
 const Catagori = () => {
 
-    const { data: booksCategories = [] } = useQuery({
+    const { data: booksCategories = [] ,isLoading } = useQuery({
         queryKey: ['booksCategories'],
         queryFn: () => fetch('http://localhost:5000/booksCategories')
             .then(res => res.json())
@@ -16,6 +17,13 @@ const Catagori = () => {
    const handlecate=(e)=>{
     console.log(e);
     
+    }
+    if(isLoading){
+        <div className=' h-[800px] flex justify-center items-center align-middle'>
+            <GridLoader 
+        color="#0a7b64"
+        size={52}></GridLoader>
+        </div>
     }
 
     

@@ -1,10 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
-import { BsPersonCheck } from 'react-icons/bs';
+import { GridLoader } from 'react-spinners';
 
 const Advertise = () => {
     const url = 'http://localhost:5000/addbooks';
-    const { data: allproducts = [] } = useQuery({
+    const { data: allproducts = [] ,isLoading } = useQuery({
         queryKey: ['addbooks'],
         queryFn: async () => {
             const res = await fetch(url);
@@ -12,6 +12,13 @@ const Advertise = () => {
             return data;
         }
     })
+    if(isLoading){
+        <div className=' h-[800px] flex justify-center items-center align-middle'>
+            <GridLoader 
+        color="#0a7b64"
+        size={52}></GridLoader>
+        </div>
+    }
 
 
     console.log(allproducts);
