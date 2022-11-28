@@ -5,7 +5,6 @@ import Main from "../../layout/Main/Main";
 import AddBooks from "../../pages/AddBooks/AddBooks";
 import Allitems from "../../pages/AllItems/Allitems";
 import Blog from "../../pages/Blog/Blog";
-import BookBooked from "../../pages/BookBoked/BookBooked";
 import BooksCategory from "../../pages/BooksCategory/BooksCategory";
 import ErrorPage from "../../pages/ErrorPage/ErrorPage";
 import Home from "../../pages/Home/Home";

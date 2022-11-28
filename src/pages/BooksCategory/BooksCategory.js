@@ -1,12 +1,12 @@
 
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 
 import { useLoaderData } from 'react-router-dom';
 import { BsPersonCheck } from 'react-icons/bs';
 import { AuthContext } from '../../context/AuthProvider';
 import toast from 'react-hot-toast';
-import { render } from 'react-dom';
+
 import { GridLoader } from 'react-spinners';
 
 

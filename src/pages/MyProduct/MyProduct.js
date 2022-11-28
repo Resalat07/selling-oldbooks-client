@@ -65,7 +65,7 @@ const MyProduct = () => {
 
             {
                 myproducts.map(mypro=><div key={mypro._id} className="card card-compact w-60 h-90 bg-base-200 shadow-xl text-green-900">
-                <figure><img src={mypro.photo} alt="Shoes" /></figure>
+                <figure><img src={mypro.photo} alt="" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{mypro.bookname}</h2>
                     <p></p>

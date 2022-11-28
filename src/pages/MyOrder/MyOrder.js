@@ -22,7 +22,7 @@ const MyOrder = () => {
 
                 {
                     myOrders.map(order => <div className="card w-96 bg-base-200 shadow-2xl">
-                        <figure><img src={order.photo} className='h-72 w-64' alt="Shoes" /></figure>
+                        <figure><img src={order.photo} className='h-72 w-48 mt-3' alt="Shoes" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">{order.bookname}</h2>
                             
