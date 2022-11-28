@@ -140,7 +140,9 @@ const BooksCategory = () => {
 
 
 
-
+                            <div className="modal-action">
+                                        <label htmlFor="my-modal-6" className="btn btn-xs bg-green-900">cancle</label>
+                                    </div>
                             <input type="checkbox" id="my-modal-6" className="modal-toggle" />
                             <div className="modal modal-bottom sm:modal-middle">
                                 <label htmlFor="my-modal-6" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
@@ -152,9 +154,7 @@ const BooksCategory = () => {
                                     <p className="py-4">{product.email}</p>
                                     <p className="py-4">{product.date}</p>
                                     <p className="py-4">{product.price}</p>
-                                    <div className="modal-action">
-                                        <label htmlFor="my-modal-6" className="btn btn-xs bg-green-900">Book Now</label>
-                                    </div>
+                                    
 
                                     <div>
                                         <form onSubmit={handleModal} className='grid grid-cols-1 gap-3 mt-10'>
