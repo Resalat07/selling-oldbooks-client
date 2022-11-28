@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
-import buyy from '../../logo/buyy.png'
+import buyy from '../../logo/buyy.svg'
 
 const Header = () => {
     const {user ,logOut}= useContext(AuthContext)
@@ -41,7 +41,7 @@ const Header = () => {
                            {menuItems}
                         </ul>
                     </div>
-                    <Link to='/' className="  text-xl flex  "><img src={ buyy} className='w-6 m-1' alt="" /> <p className='m-1'>Bibliophile's Corner</p></Link>
+                    <Link to='/' className="  text-xl flex  "><img src={ buyy} className='w-6 m-1' alt="" /> <p className='m-1 font-semibold'>Bibliophile's <span className=' text-green-600'>Corner</span></p></Link>
                 </div>
                 <div className=" hidden lg:flex navbar-end">
                     <ul className="menu menu-horizontal p-0">
