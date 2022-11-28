@@ -141,7 +141,7 @@ const BooksCategory = () => {
 
 
                             <div className="modal-action">
-                                        <label htmlFor="my-modal-6" className="btn btn-xs bg-green-900">cancle</label>
+                                        <label htmlFor="my-modal-6" ></label>
                                     </div>
                             <input type="checkbox" id="my-modal-6" className="modal-toggle" />
                             <div className="modal modal-bottom sm:modal-middle">
