@@ -121,7 +121,7 @@ const BooksCategory = () => {
                                     <p className=' font-semibold text-2xl'>{product.price} Tk.</p>
                                     <div className="card-actions justify-between mt-2">
                                         <div>
-                                        {product.report!=='Reported' &&<button onClick={()=>handleReport(product._id)} className="btn btn-xs bg-red-700 text-warning">Report</button>}
+                                        {product.report!=='Reported' &&<button onClick={()=>handleReport(product._id)} className="btn btn-xs bg-red-700 text-white border-none">Report</button>}
                                         </div>
                                         <div>
                                             {product.status === 'approve' && <p className=" text-2xl text-green-600"><BsPersonCheck></BsPersonCheck></p>}

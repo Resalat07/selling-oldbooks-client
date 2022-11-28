@@ -17,17 +17,21 @@ const Allitems = () => {
 
 
 
-    const handleApproved=(id)=>{
-        fetch(`http://localhost:5000/addbooks/approve/${id}`,{
-            method:'PUT',
+    
+
+    const handleDelete=(id)=>{
+
+        fetch(`http://localhost:5000/addbooks/${id}`, {
+            method: 'DELETE',
         })
-        .then(res=>res.json())
-        .then(data=>{
-            if(data.modifiedCount > 0){
-                refetch()
-                toast.success('Approved')
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    refetch()
+                    toast.success(' Product Deleted')
+                }
+            })
+
     }
     return (
         <div className=' flex justify-center items-center mb-10'>
@@ -47,7 +51,8 @@ const Allitems = () => {
                             <p>{allpro.price} TK</p>
                             <p>{allpro.condition}</p>
                             <p className='text-red-600'>{allpro.report}</p>
-                            <div className="card-actions justify-end">
+                            <div className="card-actions justify-between">
+                            <button onClick={() => handleDelete(allpro._id)} className=' btn btn-xs btn-warning '> Delete</button>
                                 {/* {allpro.status !== 'approve'&& <button onClick={()=>handleApproved(allpro._id)} className="btn btn-xs bg-green-900 text-warning">Approved</button>} */}
                                 {allpro.status === 'approve'&& <p  className=" text-2xl text-green-600"><BsPersonCheck></BsPersonCheck></p>}
                             </div>
