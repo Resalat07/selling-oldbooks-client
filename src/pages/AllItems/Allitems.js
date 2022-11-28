@@ -46,6 +46,7 @@ const Allitems = () => {
                             <p>{allpro.date}</p>
                             <p>{allpro.price} TK</p>
                             <p>{allpro.condition}</p>
+                            <p className='text-red-600'>{allpro.report}</p>
                             <div className="card-actions justify-end">
                                 {/* {allpro.status !== 'approve'&& <button onClick={()=>handleApproved(allpro._id)} className="btn btn-xs bg-green-900 text-warning">Approved</button>} */}
                                 {allpro.status === 'approve'&& <p  className=" text-2xl text-green-600"><BsPersonCheck></BsPersonCheck></p>}
