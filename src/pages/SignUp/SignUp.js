@@ -7,7 +7,7 @@ import toast from 'react-hot-toast';
 import { GoogleAuthProvider } from 'firebase/auth';
 
 const SignUp = () => {
-    const { createUser, updateUser ,providerLogin } = useContext(AuthContext)
+    const { createUser, updateUser, providerLogin } = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm()
     const [signUpError, setSignUPError] = useState('')
     const navigate = useNavigate()
@@ -35,7 +35,7 @@ const SignUp = () => {
     }
 
 
-    const googleLogin=()=>{
+    const googleLogin = () => {
         providerLogin(new GoogleAuthProvider)
             .then(result => {
                 const user = result.user;
@@ -46,7 +46,7 @@ const SignUp = () => {
 
     const saveUser = (name, email, select) => {
         const user = { name, email, select };
-        fetch('http://localhost:5000/users', {
+        fetch('https://buysell-server.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

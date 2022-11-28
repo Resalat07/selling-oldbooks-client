@@ -21,71 +21,71 @@ import SellerRoute from "../SellerRoute.js/SellerRoute";
 
 export const router = createBrowserRouter([
     {
-        path:'/',
-        element:<Main></Main>,
-        errorElement:<ErrorPage></ErrorPage>,
-        children:[
+        path: '/',
+        element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
+        children: [
             {
-                path:'/',
-                element:<Home></Home>
+                path: '/',
+                element: <Home></Home>
             },
             {
-                path:'/login',
-                element:<Login></Login>
+                path: '/login',
+                element: <Login></Login>
             },
             {
-                path:'/signUp',
-                element:<SignUp></SignUp>
+                path: '/signUp',
+                element: <SignUp></SignUp>
             },
             {
-                path:'/addbooks',
-                element:<AddBooks></AddBooks>
+                path: '/addbooks',
+                element: <AddBooks></AddBooks>
             },
             {
-                path:'/addbook/:id',
-                element:<PrivateRoute><BooksCategory></BooksCategory></PrivateRoute>,
-                loader: ({params})=>fetch(`http://localhost:5000/addbook?category_name=${params.id}`)
-            
+                path: '/addbook/:id',
+                element: <PrivateRoute><BooksCategory></BooksCategory></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://buysell-server.vercel.app/addbook?category_name=${params.id}`)
+
             },
             {
-                path:'/blog',
-                element:<Blog></Blog>
+                path: '/blog',
+                element: <Blog></Blog>
             }
             // {
             //     path:'/bookmodal',
             //     element:<BookBooked></BookBooked>,
-            //     // loader: ({params})=>fetch(`http://localhost:5000/addbook/${params.id}`)
+            //     // loader: ({params})=>fetch(`https://buysell-server.vercel.app/addbook/${params.id}`)
             // }
         ]
     },
     {
-        path:'/dashboard',
-        element:<PrivateRoute><DashboardLayOut></DashboardLayOut></PrivateRoute>,
-        errorElement:<ErrorPage></ErrorPage>,
-        children:[
+        path: '/dashboard',
+        element: <PrivateRoute><DashboardLayOut></DashboardLayOut></PrivateRoute>,
+        errorElement: <ErrorPage></ErrorPage>,
+        children: [
             {
-                path:'/dashboard/seller',
-                element:<SellerRoute><MyProduct></MyProduct></SellerRoute>
+                path: '/dashboard/seller',
+                element: <SellerRoute><MyProduct></MyProduct></SellerRoute>
             },
             {
-                path:'/dashboard/users',
-                element:<AdminRoute><Users></Users></AdminRoute>
+                path: '/dashboard/users',
+                element: <AdminRoute><Users></Users></AdminRoute>
             },
             {
-                path:'/dashboard/allItems',
-                element:<AdminRoute><Allitems></Allitems></AdminRoute>
+                path: '/dashboard/allItems',
+                element: <AdminRoute><Allitems></Allitems></AdminRoute>
             },
             {
-                path:'/dashboard/myOrder',
-                element:<MyOrder></MyOrder>
+                path: '/dashboard/myOrder',
+                element: <MyOrder></MyOrder>
             },
             {
-                path:'/dashboard/unapproved',
-                element:<AdminRoute><Unapproved></Unapproved></AdminRoute>
+                path: '/dashboard/unapproved',
+                element: <AdminRoute><Unapproved></Unapproved></AdminRoute>
             },
             {
-                path:'/dashboard/opinions',
-                element:<AdminRoute><Opinions></Opinions></AdminRoute>
+                path: '/dashboard/opinions',
+                element: <AdminRoute><Opinions></Opinions></AdminRoute>
             }
         ]
     }

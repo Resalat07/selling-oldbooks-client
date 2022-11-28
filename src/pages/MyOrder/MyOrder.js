@@ -5,7 +5,7 @@ import { AuthContext } from '../../context/AuthProvider';
 const MyOrder = () => {
 
     const { user } = useContext(AuthContext)
-    const url = `http://localhost:5000/addbookk?sellerEmail=${user?.email}`;
+    const url = `https://buysell-server.vercel.app/addbookk?sellerEmail=${user?.email}`;
     const { data: myOrders = [] } = useQuery({
         queryKey: ['addbookk', user?.email],
         queryFn: async () => {
@@ -25,7 +25,7 @@ const MyOrder = () => {
                         <figure><img src={order.photo} className='h-72 w-48 mt-3' alt="Shoes" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">{order.bookname}</h2>
-                            
+
                             <div className="card-actions justify-end">
                                 <button className="btn btn-xs bg-green-800">Pay Now</button>
                             </div>

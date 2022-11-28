@@ -5,8 +5,8 @@ import { BsPersonCheck } from 'react-icons/bs';
 
 const Allitems = () => {
 
-    const url = 'http://localhost:5000/addbooks';
-    const { data: allproducts = [] ,refetch } = useQuery({
+    const url = 'https://buysell-server.vercel.app/addbooks';
+    const { data: allproducts = [], refetch } = useQuery({
         queryKey: ['addbooks'],
         queryFn: async () => {
             const res = await fetch(url);
@@ -17,11 +17,11 @@ const Allitems = () => {
 
 
 
-    
 
-    const handleDelete=(id)=>{
 
-        fetch(`http://localhost:5000/addbooks/${id}`, {
+    const handleDelete = (id) => {
+
+        fetch(`https://buysell-server.vercel.app/addbooks/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())
@@ -35,7 +35,7 @@ const Allitems = () => {
     }
     return (
         <div className=' flex justify-center items-center mb-10'>
-            
+
             <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6'>
 
                 {
@@ -52,9 +52,9 @@ const Allitems = () => {
                             <p>{allpro.condition}</p>
                             <p className='text-red-600'>{allpro.report}</p>
                             <div className="card-actions justify-between">
-                            <button onClick={() => handleDelete(allpro._id)} className=' btn btn-xs btn-warning '> Delete</button>
+                                <button onClick={() => handleDelete(allpro._id)} className=' btn btn-xs btn-warning '> Delete</button>
                                 {/* {allpro.status !== 'approve'&& <button onClick={()=>handleApproved(allpro._id)} className="btn btn-xs bg-green-900 text-warning">Approved</button>} */}
-                                {allpro.status === 'approve'&& <p  className=" text-2xl text-green-600"><BsPersonCheck></BsPersonCheck></p>}
+                                {allpro.status === 'approve' && <p className=" text-2xl text-green-600"><BsPersonCheck></BsPersonCheck></p>}
                             </div>
                         </div>
                     </div>)

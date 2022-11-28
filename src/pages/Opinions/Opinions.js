@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 
 const Opinions = () => {
-    const url = 'http://localhost:5000/opinion';
+    const url = 'https://buysell-server.vercel.app/opinion';
     const { data: comment = [] } = useQuery({
         queryKey: ['opinion',],
         queryFn: async () => {
@@ -20,7 +20,7 @@ const Opinions = () => {
                             <h2 className="card-title">{cmt.name}</h2>
                             <h2 className="card-title">{cmt.email}</h2>
                             <p>{cmt.opinion}</p>
-                            
+
                         </div>
                     </div>
 
